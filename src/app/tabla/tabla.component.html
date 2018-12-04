@@ -1,0 +1,14 @@
+<form [formGroup]="tablaForm">
+  <h2>Aqui va </h2>
+    <div formArrayName="filas" *ngFor="let item of tablaForm.get('filas').controls; let i = index;">
+      <div [formGroupName]="i">
+          <app-columnas [filas]="item" (array_filas)="getLista($event)"></app-columnas>
+        <!-- <input formControlName="item" placeholder="Item value"> -->
+      </div>
+  
+    <!-- Chosen name: {{ tablaForm.controls.filas.controls[i].controls.item.value }} -->
+  </div>
+  <button  type="button" (click)="addItem()" >Agregar</button>
+  <button  type="button" (click)="printer()" >Mostrar</button>
+  <!-- <button  type="button" (click)="creadorCeros()" >Creador</button> -->
+</form>
